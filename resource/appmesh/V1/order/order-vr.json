@@ -1,0 +1,16 @@
+{
+  "meshName": "shopmesh",
+
+  "virtualRouterName": "order-vr",
+
+  "spec": {
+    "listeners": [
+      {
+        "portMapping": {
+          "port": 5000,
+          "protocol": "http"
+        }
+      }
+    ]
+  }  
+}
