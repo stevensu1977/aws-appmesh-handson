@@ -25,7 +25,7 @@ This is aws appmesh hands-on workshop project
      aws configure
      ```
      
-   * ekcstl 
+   * eksctl 
      
      ```bash
      #linux
