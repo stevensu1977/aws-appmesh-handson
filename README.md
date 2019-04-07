@@ -38,5 +38,14 @@ This is aws appmesh hands-on workshop project
      [ℹ]  version.Info{BuiltAt:"", GitCommit:"", GitTag:"0.1.26"}
      ```
 
+## Lab & 脚本说明
+
+   * Lab01 创建AWS EKS 集群
+   * Lab02 创建Mesh 
+   * Lab03 部署应用v1.0 
+   * Lab04 部署customer/product 服务新版本
+   * Lab05 版本切换/回滚
+   * Lab06 AppMesh图形操作演示
+   * tools 资源清除脚本
 
 	
