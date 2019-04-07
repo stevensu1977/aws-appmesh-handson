@@ -4,6 +4,10 @@
  
 ###Lab01 创建EKS 集群
 
+   * 创建eks需要一定时间请耐心等待脚本执行完毕
+   
+   ![screenshot-01](https://github.com/stevensu1977/aws-appmesh-handson/blob/master/screenshot/lab01-1.gif?raw=true)
+   
    * 定制环境变量参数
       * AWS_REGION //默认是us-west-2
       * EKS_NAME //EKS Cluster 集群,默认是jani-mi2-demo
@@ -22,3 +26,5 @@
         
         
       ```     
+
+  
