@@ -1,6 +1,12 @@
 # aws-appmesh-handson
 
-This is aws appmesh hands-on workshop project
+* Author:	[StevenSu](mailto:suwei007@gmail.com) 
+
+* Blog:	https://stevensu.me
+
+##Overview 
+
+  This is aws appmesh hands-on workshop project
 
 ![appmesh](https://github.com/stevensu1977/aws-appmesh-handson/blob/master/images/app-mesh.png?raw=true)
 	
