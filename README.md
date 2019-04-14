@@ -4,6 +4,10 @@
 
 * Blog:	https://stevensu.me
 
+## Update
+   * 2019/04/14 增加Lab07 sidecar自动注入
+  
+  
 ## Overview 
 
   This is aws appmesh hands-on workshop project
@@ -11,10 +15,11 @@
 ![appmesh](https://github.com/stevensu1977/aws-appmesh-handson/blob/master/images/app-mesh.png?raw=true)
 	
 ## Reference:
-   * [janakiramm/app-mesh-tutorial](https://github.com/janakiramm/app-mesh-tutorial)
+   * [janakiramm/app-mesh-tutorial](https://github.com/janakiramm/app-mesh-tutorial) 
    * [Getting Started with AWS App Mesh](https://www.youtube.com/watch?v=I6aIp0AmIC0)
    * [AWS App Mesh Examples](https://github.com/aws/aws-app-mesh-examples)
-	
+   * [AWS App Mesh Inject project](https://github.com/aws/aws-app-mesh-inject)
+
 ## Prerequisites
 
    * AWS 账号 (EKS建议使用t2.meduim, free tier 账号会产生额外费用 )
@@ -54,6 +59,7 @@
    * Lab04 部署customer/product 服务新版本
    * Lab05 版本切换/回滚
    * Lab06 AppMesh图形操作演示
+   * Lab07 AppMesh Sidecar自动注入
    * tools 资源清除脚本
 
 	
