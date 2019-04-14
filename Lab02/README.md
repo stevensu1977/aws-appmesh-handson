@@ -4,7 +4,7 @@
  
 ###Lab02 创建Mesh
    
-   
+   Author [StevenSu](mailto:suwei007@gmail.com)
 
    * Tips: 
        * 目前appmesh只接受json格式( --cli-input-json),
