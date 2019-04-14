@@ -1,0 +1,11 @@
+{
+    "meshName": "shopmesh",
+    "spec": {
+        "provider": {
+            "virtualRouter": {
+                "virtualRouterName": "customer-vr"
+            }
+        }
+    },
+    "virtualServiceName": "customer.appmesh-demo.svc.cluster.local"
+}

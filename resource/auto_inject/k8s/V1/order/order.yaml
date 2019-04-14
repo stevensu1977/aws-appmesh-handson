@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: order
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        microsvc: order
+      annotations:
+        appmesh.k8s.aws/mesh: shopmesh
+        appmesh.k8s.aws/ports: "5000"
+        appmesh.k8s.aws/virtualNode: order-vn
+        appmesh.k8s.aws/sidecarInjectorWebhook: enabled
+
+    spec:
+      containers:
+      - name: order
+        image: janakiramm/order
+        imagePullPolicy: Always
+        env:       
+        - name: "CUST_SVC_URL"
+          value: "http://customer.appmesh-demo.svc.cluster.local:5000"
+        - name: "PROD_SVC_URL"
+          value: "http://product.appmesh-demo.svc.cluster.local:5000"
+        - name: "SVC_NAME"
+          value: "Order"        
+        - name: "SVC_VER"
+          value: "1.0"        
+        ports:
+        - name: order-port
+          containerPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order
+  labels:
+    microsvc: order
+spec:
+  selector:
+    microsvc: order
+  type: LoadBalancer
+  ports:
+   - port: 80
+     name: http
+     targetPort: 5000
+     protocol: TCP 
