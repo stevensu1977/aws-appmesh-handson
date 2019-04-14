@@ -2,9 +2,10 @@
 
 ##2019/04/2
  
-### Lab04 customer/product 服务新版本
+### Lab04 部署customer/product 服务新版本
 
-
+   * 实验内容: 使用kubectl向EKS集群部署 customer v1.5 ,product v2.0 版本，并使用aws cli更新AppMesh的路由规则.
+    
    ```bash
      
      cd lab04

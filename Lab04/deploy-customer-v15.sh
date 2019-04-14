@@ -7,11 +7,36 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 
-printf "${GREEN}Use kubectl delopy V1.5/customer \n"
-printf "Start deploy V1.5 customer service .......\n"
-printf "kubectl apply -f V15/customer/customerV15.yaml${NC}\n"
+#!/bin/bash
 
-kubectl apply -f ../resource/k8s/V15/customer/customerV15.yaml
 
-printf "V1.5/customer service deploy complete${NC}\n"
+
+if [ -z "$SIDECAR_INJECT" ] ; then
+    SIDECAR_INJECT="manual"
+fi
+
+if [ -z "$AWS_REGION" ] ; then
+    AWS_REGION="us-west-2"
+fi
+
+RESOURCE_PATH="../resource/${SIDECAR_INJECT}_inject"
+K8S_RESOURCE_PATH="${RESOURCE_PATH}/k8s"
+APP_VERSION="V15"
+APP_NAME="customer"
+
+export APP_NAME  APP_VERSION K8S_RESOURCE_PATH RESOURCE_PATH
+
+
+printf "${GREEN}AWS AppMesh Hands-On Lab:  ${NC}\n"
+printf "${GREEN}AWS_REGION: ${AWS_REGION}  ${NC}\n"
+printf "${GREEN}SIDECAR_INJECT: ${SIDECAR_INJECT}  ${NC}\n"
+
+
+printf "${GREEN}Start generate manual inject deploy yaml......${NC}\n"
+../tools/generate_deploy.sh customer V15
+
+#deploy customer V15 to EKS cluster
+../tools/deploy-with-version.sh $APP_VERSION
+
+
 
