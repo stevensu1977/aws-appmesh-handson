@@ -5,7 +5,10 @@
 * Blog:	https://stevensu.me
 
 ## Update
-   * 2019/04/14 增加Lab07 sidecar自动注入
+   * 2019/04/14 
+      * 增加generate_deploy.sh 
+      * 根据AWS_REGION环境变量动态为manual生成所需yaml
+      * 增加Lab07 sidecar自动注入
   
   
 ## Overview 
