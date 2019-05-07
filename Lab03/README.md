@@ -9,7 +9,7 @@
       
       
       ```bash
-      cd lab02
+      cd lab03
       
       #可以使用tools/remove_deploy.sh清除所有部署
       
