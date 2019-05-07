@@ -6,10 +6,20 @@
    * 前提条件已经创建了EKS集群,创建了AppMesh
    * 本节实验: 实现sidecar自动注入,减少配置依赖
    * 本节所有app会部署到appmesh-demo这个namespace下面
-   * 安装自动注入所需要controler [app-mesh-injector](https://github.com/aws/aws-app-mesh-inject)
+   * 安装自动注入所需要的AWS App Mesh Kubernetes sidecar injecting Admission Controller. [app-mesh-injector](https://github.com/aws/aws-app-mesh-inject)
       
+   *  定制自动注入配置, 可以在annotations里面可以配置mesh,prots,virtualNode,sidecarInjectorWebhook 来覆盖默认信息
+   
+     ```bash
+      annotations:
+        appmesh.k8s.aws/mesh: appdemo-mesh
+        appmesh.k8s.aws/ports: "5000" #默认的是所有container port
+        appmesh.k8s.aws/virtualNode: customer-vn #默认<deployment name>-<namespace>
+        appmesh.k8s.aws/sidecarInjectorWebhook: disabled  #默认是enabled
+        
+     ```
+   
    * 请使用Lab提供的install-auto-inject.sh
-     
      
       ```bash
        #向EKS集群安装inject 所需Name Space, CRD等资源
