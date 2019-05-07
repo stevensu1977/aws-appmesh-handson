@@ -7,6 +7,7 @@
    * 应用包含3个服务, customer , product,order
       order服务会掉用customer, product服务并返回结果
       
+      ![screenshot-01](https://github.com/stevensu1977/aws-appmesh-handson/blob/master/screenshot/lab03-1.gif?raw=true)
       
       ```bash
       cd lab03
