@@ -9,6 +9,9 @@
       * 增加generate_deploy.sh 
       * 根据AWS_REGION环境变量动态为manual生成所需yaml
       * 增加Lab07 sidecar自动注入
+   * 2019/05/07
+      * 增加auto-inject 配置说明
+      * 增加service image 说明
   
   
 ## Overview 
@@ -53,6 +56,38 @@
      eksctl version
      [ℹ]  version.Info{BuiltAt:"", GitCommit:"", GitTag:"0.1.26"}
      ```
+     
+     
+## Service 说明
+本Lab使用了[janakiramm/app-mesh-tutorial/Services](https://github.com/janakiramm/app-mesh-tutorial/tree/master/Services) 作为演示服务
+
+   * 包括Order , Customer , Product 3个Service，使用python, flask编写 
+
+     ```python
+     #Order 服务
+     from flask import Flask
+     import requests
+     import os
+
+     app = Flask(__name__)
+
+     @app.route('/')
+     def get_order():	
+	     cust_svc_url=os.environ.get('CUST_SVC_URL')
+	     prod_svc_url=os.environ.get('PROD_SVC_URL')
+	
+	     svc_name=os.environ.get('SVC_NAME')
+	     svc_ver=os.environ.get('SVC_VER')	
+	     response = '{"Service":"'+ svc_name +'", "Version":' + svc_ver + '}\n'
+	     response = response + requests.get(cust_svc_url).content.decode('utf-8')
+	     response = response + requests.get(prod_svc_url).content.decode('utf-8')
+	     return response
+
+     if __name__ == '__main__':
+	     app.run(debug=True,host='0.0.0.0',port=5000)
+
+     ```
+
 
 ## Lab & 脚本说明
 
@@ -63,6 +98,6 @@
    * Lab05 版本切换/回滚
    * Lab06 AppMesh图形操作演示
    * Lab07 AppMesh Sidecar自动注入
-   * tools 资源清除脚本
+   * tools 工具类脚本
 
 	
