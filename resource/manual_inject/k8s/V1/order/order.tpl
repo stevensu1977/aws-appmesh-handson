@@ -36,6 +36,15 @@ spec:
             value: "info"
           - name: "AWS_REGION"
             value: "%ENV_AWS_REGION%"
+          - name: "ENABLE_ENVOY_XRAY_TRACING"
+            value:  "1" 
+      - name: xray-daemon
+        image: amazon/aws-xray-daemon
+        securityContext:
+          runAsUser: 1337
+        ports:
+          - name: xray-daemon
+            containerPort: 2000 
       initContainers:
         - name: proxyinit
           image: 111345817488.dkr.ecr.us-west-2.amazonaws.com/aws-appmesh-proxy-route-manager:latest
