@@ -12,6 +12,9 @@
    * 2019/05/07
       * 增加auto-inject 配置说明
       * 增加service image 说明
+   * 2019/05/11
+      * 增加manual inject x-ray配置(V1)
+      * 增加x-ray 截图
   
   
 ## Overview 
